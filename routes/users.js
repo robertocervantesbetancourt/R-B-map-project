@@ -5,11 +5,13 @@
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
+const bodyParser = require('body-parser')
+
 const express = require('express');
 const router  = express.Router();
 
 module.exports = (db) => {
-  router.get("/", (req, res) => {
+  router.get("/:id", (req, res) => {
     db.query(`SELECT * FROM users;`)
       .then(data => {
         const users = data.rows;
