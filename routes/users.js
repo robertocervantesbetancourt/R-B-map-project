@@ -20,7 +20,7 @@ module.exports = (db) => {
           .then(data => {
             const maps = data.rows;
             templateVars.maps = maps
-            res.render("routes_test", templateVars);
+            res.render("index", templateVars);
           })
           .catch(err => {
             res
