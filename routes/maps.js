@@ -20,9 +20,6 @@ module.exports = (db) => {
       });
   });
 
-  router.post("/", (req, res) => {
-    `INSERT INTO maps (name, user_id) VALUES `
-  })
   return router;
 };
 
