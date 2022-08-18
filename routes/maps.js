@@ -1,13 +1,13 @@
 const bodyParser = require('body-parser')
 
+const {allLocationsInMap} = require('../db/queries/queries_functions');
+
 const express = require('express');
 const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/:id", (req, res) => {
-    db.query(
-      `SELECT locations.* FROM locations
-      WHERE map_id = $1;`, [req.params.id])
+    allLocationsInMap(db, req.params.id)
       .then(data => {
         const locations = data.rows;
         const templateVars = {locations};
@@ -19,6 +19,10 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
+
+  router.post("/", (req, res) => {
+    `INSERT INTO maps (name, user_id) VALUES `
+  })
   return router;
 };
 
