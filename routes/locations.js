@@ -7,10 +7,10 @@ module.exports = (db) => {
   router.get("/:id", (req, res) => {
     db.query(
       `SELECT locations.* FROM locations
-      WHERE map_id = $1;`, [req.params.id])
+      WHERE locations.id = $1;`, [req.params.id])
       .then(data => {
-        const locations = data.rows;
-        const templateVars = {locations};
+        const location = data.rows;
+        const templateVars = {location};
         res.render('routes_test', templateVars)
       })
       .catch(err => {
@@ -21,5 +21,3 @@ module.exports = (db) => {
   });
   return router;
 };
-
-
