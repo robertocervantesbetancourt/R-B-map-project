@@ -14,24 +14,5 @@
 
   <body>
     <h1>Hello 🥸</h1>
-
-    <h3><%= users.name %></h3>
-    <img src="<%= users.profile_photo %>" alt="profile photo">
-    <p>
-      <%= users.map_name %>
-    </p>
-
-    <div>
-      <% for(const map of maps) { %>
-        <form action="api/maps/<%= map.id %>" method="get">
-          <input type="submit" value="<%= map.name %>"></input>
-        </form>
-      <% } %>
-      </ul>
-    </div>
-
-    <div id="locations-list">
-
-    </div>
   </body>
 </html>

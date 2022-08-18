@@ -4,8 +4,8 @@ CREATE TABLE locations (
   name VARCHAR(255) NOT NULL,
   image VARCHAR(255) NOT NULL,
   description TEXT,
-  latitude INTEGER NOT NULL,
-  longitude INTEGER NOT NULL,
+  latitude FLOAT NOT NULL,
+  longitude FLOAT NOT NULL,
   map_id INTEGER REFERENCES maps(id) ON DELETE CASCADE NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE NOT NULL
 );
