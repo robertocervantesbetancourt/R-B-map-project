@@ -12,10 +12,27 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/:id", (req, res) => {
-    db.query(`SELECT * FROM users;`)
+    db.query(
+      `SELECT users.name as name, profile_photo, maps.name as map_name
+      FROM users JOIN maps ON users.id = user_id
+      WHERE users.id = $1;`, [req.params.id])
       .then(data => {
-        const users = data.rows;
-        res.json({ users });
+        const users = data.rows[0];
+        const templateVars = {users};
+        db.query(
+          `SELECT maps.*
+          FROM maps WHERE NOT user_id = $1;`, [req.params.id])
+          .then(data => {
+            const maps = data.rows;
+            templateVars.maps = maps
+            console.log(templateVars)
+            res.render("routes_test", templateVars);
+          })
+          .catch(err => {
+            res
+              .status(500)
+              .json({ error: err.message });
+          });
       })
       .catch(err => {
         res
