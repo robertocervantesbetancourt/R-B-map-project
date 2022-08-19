@@ -1,0 +1,8 @@
+<div id="location-widget">
+  <h2>Here are the locations in the map</h2>
+  <% for (const location of locations) { %>
+    <form id="loc_<%=location.location_id%>" action="/location/<%= location.location_id %>" method="get">
+      <input type="submit" value="<%= location.location_name %>"></input>
+    </form>
+  <% } %>
+</div>
