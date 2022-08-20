@@ -22,15 +22,15 @@
       </div>
 
       <div>
-        <form id="map_<%=users.map_id%>" action="/map/<%= users.map_id %>" method="get">
-          <input type="submit" value="<%= users.map_name %>"></input>
+        <form class="map-button" id="map_<%=users.map_id%>" action="/map/<%= users.map_id %>" method="get">
+          <input map-id="<%=users.map_id%>" class="button" type="submit" value="<%= users.map_name %>"></input>
         </form>
       </div>
       <div>
         <h2>Here are some maps created by other users</h2>
         <% for(const map of maps) { %>
-          <form id="map_<%=map.map_id%>" action="/map/<%= map.map_id %>" method="get">
-            <input type="submit" value="<%= map.map_name %>"></input>
+          <form class="map-button" id="map_<%=map.map_id%>" action="/map/<%= map.map_id %>" method="get">
+            <input map-id="<%=map.map_id%>" type="submit" value="<%= map.map_name %>"></input>
           </form>
         <% } %>
         </ul>

@@ -1,9 +1,10 @@
 $(document).ready(function(){
-  const $button1 = $('#map_1');
-  $button1.on('click', function(e){
+  $(".map-button input").on('click', function(e){
+    let mapId = $(this).attr("map-id");
+    console.log('The map id is ' + mapId);
     e.preventDefault()
     $.ajax({
-      url: '/map/1',
+      url: `/map/${mapId}`,
       type: 'get',
     })
     .then(function(data){
@@ -11,84 +12,20 @@ $(document).ready(function(){
       $('#locations-list').html(data)
     })
     .then(function(){
-    const $locationButton1 = $('#loc_1');
-    $locationButton1.on('click', function(e){
-      console.log('click')
-      e.preventDefault()
-      $.ajax({
-        url: '/location/1',
-        type: 'get',
-      })
-      .then(function(data){
-        console.log('ajax call...')
-        console.log(data)
-        $('#location-info').html(data)
-      })
-    })
-
-    const $locationButton2 = $('#loc_2');
-    $locationButton2.on('click', function(e){
-      console.log('click')
-      e.preventDefault()
-      $.ajax({
-        url: '/location/2',
-        type: 'get',
-      })
-      .then(function(data){
-        console.log('ajax call...')
-        console.log(data)
-        $('#location-info').html(data)
-      })
-    })
-
-    const $locationButton3 = $('#loc_3');
-    $locationButton3.on('click', function(e){
-      console.log('click')
-      e.preventDefault()
-      $.ajax({
-        url: '/location/3',
-        type: 'get',
-      })
-      .then(function(data){
-        console.log('ajax call...')
-        console.log(data)
-        $('#location-info').html(data)
+      $(".location-button input").on('click', function(e){
+        let locId = $(this).attr('location-id');
+        console.log('The location id is ' + locId);
+        e.preventDefault()
+        $.ajax({
+          url: `/location/${locId}`,
+          type: 'get',
+        })
+        .then(function(data){
+          console.log('ajax call...')
+          $('#location-info').html(data)
+        })
       })
     })
   })
-
-  })
-
-  const $button2 = $('#map_2');
-  $button2.on('click', function(e){
-    e.preventDefault()
-    $.ajax({
-      url: '/map/2',
-      type: 'get',
-    })
-    .then(function(data){
-      console.log('ajax call...')
-      $('#locations-list').html(data)
-    })
-  })
-
-  const $button3 = $('#map_3');
-  $button3.on('click', function(e){
-    e.preventDefault()
-    $.ajax({
-      url: '/map/3',
-      type: 'get',
-    })
-    .then(function(data){
-      console.log('ajax call...')
-      $('#locations-list').html(data)
-    })
-  })
-
-
-
-
-
-
 })
 
