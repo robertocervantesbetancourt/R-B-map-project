@@ -22,10 +22,6 @@
       </div>
 
       <div>
-        <h2>Here are your maps:</h2>
-        <% for (const map of users.map_id) { %>
-          <p><%=map%></p>
-        <% } %>
         <form id="map_<%=users.map_id%>" action="/map/<%= users.map_id %>" method="get">
           <input type="submit" value="<%= users.map_name %>"></input>
         </form>
