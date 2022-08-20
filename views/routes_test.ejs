@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home Page</title>
+
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script src="/scripts/test.js"></script>
+
+
+  </head>
+
+  <body >
+    <div style="width:33%; margin-right:60px;">
+      <div>
+        <h1>Hello 👋, <%= users.user_name %></h1>
+        <img src="<%= users.profile_photo %>" alt="profile photo">
+      </div>
+
+      <div>
+        <form id="map_<%=users.map_id%>" action="/map/<%= users.map_id %>" method="get">
+          <input type="submit" value="<%= users.map_name %>"></input>
+        </form>
+      </div>
+      <div>
+        <h2>Here are some maps created by other users</h2>
+        <% for(const map of maps) { %>
+          <form id="map_<%=map.map_id%>" action="/map/<%= map.map_id %>" method="get">
+            <input type="submit" value="<%= map.map_name %>"></input>
+          </form>
+        <% } %>
+        </ul>
+      </div>
+      <div>
+        <h2>Create new map <%= users.user_id %></h2>
+        <form id="new-map" action="/map/creator/<%= users.user_id %>" method="post">
+          <label for="map_name">Map Name</label>
+          <input id="map_name"type="text" name="map_name">
+          <input type="submit" value="Create">
+        </form>
+      </div>
+    </div>
+
+    <div style="width:33%">
+      <div id="locations-list" >
+        <h2>Here are the locations in the map</h2>
+      </div>
+      <div id="location-info"></div>
+
+    </div>
+  </body>
+</html>
