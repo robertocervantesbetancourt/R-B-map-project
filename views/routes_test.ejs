@@ -17,18 +17,22 @@
   <body >
     <div style="width:33%; margin-right:60px;">
       <div>
-        <h1>Hello 👋, <%= users.user_name %></h1>
-        <img src="<%= users.profile_photo %>" alt="profile photo">
+        <h1>Hello 👋, <%= user.user_name %></h1>
+        <img src="<%= user.profile_photo %>" alt="profile photo">
       </div>
 
       <div>
-        <form class="map-button" id="map_<%=users.map_id%>" action="/map/<%= users.map_id %>" method="get">
-          <input map-id="<%=users.map_id%>" class="button" type="submit" value="<%= users.map_name %>"></input>
-        </form>
+        <h2>Your maps:</h2>
+        <% for (const map of userMaps) { %>
+          <form class="map-button" id="map_<%=map.map_id%>" action="/map/<%= map.map_id %>" method="get">
+            <input map-id="<%=map.map_id%>" type="submit" value="<%= map.map_name %>"></input>
+          </form>
+        <% } %>
+
       </div>
       <div>
         <h2>Here are some maps created by other users</h2>
-        <% for(const map of maps) { %>
+        <% for(const map of otherMaps) { %>
           <form class="map-button" id="map_<%=map.map_id%>" action="/map/<%= map.map_id %>" method="get">
             <input map-id="<%=map.map_id%>" type="submit" value="<%= map.map_name %>"></input>
           </form>
@@ -36,8 +40,8 @@
         </ul>
       </div>
       <div>
-        <h2>Create new map <%= users.user_id %></h2>
-        <form id="new-map" action="/map/creator/<%= users.user_id %>" method="post">
+        <h2>Create new map <%= user.user_id %></h2>
+        <form id="new-map" action="/map/creator/<%= user.user_id %>" method="post">
           <label for="map_name">Map Name</label>
           <input id="map_name"type="text" name="map_name">
           <input type="submit" value="Create">

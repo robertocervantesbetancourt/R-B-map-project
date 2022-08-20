@@ -1,4 +1,4 @@
-const {userById, mapsFromOtherUsers, allLocationsInMap, locationInfo, newMap} = require('../db/queries/queries_functions');
+const {userProfileById, mapsFromOtherUsers, allLocationsInMap, locationInfo, newMap, userMaps} = require('../db/queries/queries_functions');
 const bodyParser = require('body-parser')
 
 const express = require('express');
@@ -6,21 +6,31 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/user/:id", (req, res) => {
-    userById(db, req.params.id)
+    userProfileById(db, req.params.id)
       .then(data => {
-        const users = data.rows[0];
-        const templateVars = {users};
-        mapsFromOtherUsers(db, req.params.id)
-          .then(data => {
-            const maps = data.rows;
-            templateVars.maps = maps
-            res.render("routes_test", templateVars);
-          })
-          .catch(err => {
-            res
-              .status(500)
-              .json({ error: err.message });
-          });
+        const user = data.rows[0];
+        const templateVars = {user};
+        userMaps(db, req.params.id)
+        .then(data => {
+          const userMaps = data.rows;
+          templateVars.userMaps = userMaps
+          mapsFromOtherUsers(db, req.params.id)
+            .then(data => {
+              const otherMaps = data.rows;
+              templateVars.otherMaps = otherMaps
+              res.render("routes_test", templateVars);
+            })
+            .catch(err => {
+              res
+                .status(500)
+                .json({ error: err.message });
+            });
+        })
+        .catch(err => {
+          res
+            .status(500)
+            .json({ error: err.message });
+        });
       })
       .catch(err => {
         res
@@ -48,7 +58,6 @@ module.exports = (db) => {
       .then(data => {
         const location = data.rows[0];
         const templateVars = {location};
-        console.log(templateVars)
         res.render("test_loc_info", templateVars)
       })
       .catch(err => {
