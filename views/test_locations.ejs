@@ -4,6 +4,9 @@
     <form class="location-button" id="loc_<%=location.location_id%>" action="/location/<%= location.location_id %>" method="get">
       <input location-id="<%=location.location_id%>" type="submit" value="<%= location.location_name %>"></input>
     </form>
+    <form id="delete-location" location-id="<%=location.location_id%>" action="/location/<%=location.location_id%>/delete" method="post">
+      <input type="submit" value="delete">
+    </form>
   <% } %>
 </div>
 

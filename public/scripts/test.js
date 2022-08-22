@@ -12,22 +12,6 @@ $(document).ready(function(){
     .then(function(data){
       console.log('ajax call...')
       $('#locations-list').html(data)
-      const $newLocation = document.querySelector('#new-location')
-      // $($newLocation).submit(function(e){
-      //   alert('click')
-      //   console.log('ajax call...')
-      //   e.preventDefault();
-      //   const message = $(this).serialize();
-      //   $.ajax({
-      //     url: `/location`,
-      //     type: 'post',
-      //     data: message
-      //   })
-      //   .then(function(data){
-      //     $newLocation.reset();
-      //     $('#location-widget').load(location.href + " #location-widget");
-      //   })
-      // })
     })
     .then(function(){
       $(".location-button input").on('click', function(e){
@@ -64,8 +48,6 @@ $(document).ready(function(){
   })
 
     //POST route when creating a new location
-
-
     $(".map-button input").on('click', function(){
       const $newLocation = document.querySelector('#new-location')
       $($newLocation).submit(function(e){
@@ -81,8 +63,31 @@ $(document).ready(function(){
           $newLocation.reset();
           //console.log($('#location-widget').html());
           //$('#locations-list').load(location.href + " #locations-list");
-          $('#locations-list').append(location.href + 'test_locations.ejs');
-          console.log($('#locations-list').html());
+          console.log('data:' + data)
+          console.log('message:' + message)
+        })
+      })
+    })
+
+      //POST route to delete locations
+      $(".map-button input").on('click', function(){
+      const $deleteLocation = document.querySelector('#delete-location input')
+      if ($($deleteLocation).length > 0){
+        alert ('it exists')
+      }
+      $($deleteLocation).on('click', function(e){
+        console.log('ajax cal...')
+        e.preventDefault();
+        let locationID = $(this).attr('#location-id')
+        alert (`deleting ${locationID}`)
+        const message = $(this).serialize();
+        $.ajax({
+          url: `/location/${locationID}/delete`,
+          type: 'delete',
+          data: message
+        })
+        .then(function(data){
+
         })
       })
     })

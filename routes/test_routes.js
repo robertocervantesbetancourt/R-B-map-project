@@ -1,4 +1,4 @@
-const {userProfileById, mapsFromOtherUsers, allLocationsInMap, locationInfo, newMap, userMaps, newLocation, firstMapFromUser} = require('../db/queries/queries_functions');
+const {userProfileById, mapsFromOtherUsers, allLocationsInMap, locationInfo, newMap, userMaps, newLocation, firstMapFromUser, deleteLocation} = require('../db/queries/queries_functions');
 const bodyParser = require('body-parser')
 const cookieParser = require ('cookie-parser')
 
@@ -34,17 +34,7 @@ module.exports = (db) => {
                   .cookie('mapID', mapID)
                   .render("routes_test", templateVars);
                 })
-                })
-              //})
-              //   res
-              //   .cookie('mapID', data.rows)
-              //   allLocationsInMap(db, data.rows)
-              //     .then(data => {
-              //       const locations = data.rows;
-              //       templateVars.locations = {locations};
-
-              //})
-              //})
+              })
             })
             .catch(err => {
               res
@@ -69,7 +59,6 @@ module.exports = (db) => {
     allLocationsInMap(db, req.params.id)
       .then(data => {
         const locations = data.rows;
-        console.log(locations);
         const templateVars = {locations};
         res
           .cookie('mapID', `${req.params.id}`)
@@ -78,7 +67,7 @@ module.exports = (db) => {
       .catch(err => {
         res
           .status(500)
-          .json({ error: err.message });
+          //.json({ error: err.message });
       });
   });
 
@@ -101,12 +90,9 @@ module.exports = (db) => {
   router.post("/map", (req, res) => {
     const userID = req.cookies.userID
     newMap(db, req.body.map_name,userID)
-    //.then(data => {
-      //userMaps(db, userID)
       .then(data => {
           res.status(201).send();
         })
-      //})
       .catch(err => {
         res
           .status(500)
@@ -119,7 +105,23 @@ module.exports = (db) => {
     const mapID = req.cookies.mapID;
     newLocation(db, req.body.name, req.body.description, req.body.latitude, req.body.longitude, req.body.image, userID, mapID)
     .then(data => {
-      res.status(201).send();
+      res
+      .status(201).send()
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+  })
+
+  //////////////////// DELETE ROUTES ///////////////////////////
+
+  router.post("/location/:id/delete", (req, res) => {
+    console.log(req.params.id)
+    deleteLocation(db, req.params.id)
+    .then(data => {
+      res.status(201).send()
     })
     .catch(err => {
       res

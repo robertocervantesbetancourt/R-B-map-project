@@ -52,4 +52,12 @@ const firstMapFromUser = (db, userID) => {
     LIMIT 1;`, [userID]
   )
 }
-module.exports = {userProfileById, mapsFromOtherUsers, allLocationsInMap, locationInfo, newMap, userMaps, newLocation, firstMapFromUser};
+
+const deleteLocation = (db, locationID) => {
+  return db.query(
+    `DELETE FROM locations
+    WHERE location_id = $1;`, [locationID]
+  )
+}
+
+module.exports = {userProfileById, mapsFromOtherUsers, allLocationsInMap, locationInfo, newMap, userMaps, newLocation, firstMapFromUser, deleteLocation};
