@@ -39,11 +39,8 @@ $(document).ready(function(){
       data: message
     })
     .then(function(data){
-      console.log(location.href);
       $newMap.reset();
       $('#test-map-widget').load(location.href + " #test-map-widget");
-    //   console.log(data)
-      //$('#maps-section').html(data)
     })
   })
 

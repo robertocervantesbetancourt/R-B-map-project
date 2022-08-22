@@ -2,11 +2,6 @@ const userProfileById = (db, id) => {
   return db.query(
     `SELECT users.* FROM users
     WHERE users.user_id = $1;`, [id]);
-    // `SELECT users.user_id as user_id, user_name, profile_photo, map_name, maps.map_id, location_id, location_name,
-    // location_image, location_description, location_latitude, location_longitude
-    // FROM users JOIN maps ON users.user_id = maps.creator_id
-    // JOIN locations ON users.user_id = locations.creator_id
-    // WHERE users.user_id = $1;`, [id]);
 };
 
 const userMaps = (db, id) => {

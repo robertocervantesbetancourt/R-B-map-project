@@ -1,4 +1,5 @@
-<div id="location-widget">
+<div id="location-widget" map-id="<%= locations[0].map_id%>">
+  <% const mapID = locations[0].map_id %>
   <h2>Here are the locations in the map</h2>
   <% for (const location of locations) { %>
     <form class="location-button" id="loc_<%=location.location_id%>" action="/location/<%= location.location_id %>" method="get">
@@ -6,3 +7,4 @@
     </form>
   <% } %>
 </div>
+

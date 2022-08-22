@@ -1,5 +1,6 @@
 const {userProfileById, mapsFromOtherUsers, allLocationsInMap, locationInfo, newMap, userMaps} = require('../db/queries/queries_functions');
 const bodyParser = require('body-parser')
+const cookieParser = require ('cookie-parser')
 
 const express = require('express');
 const router  = express.Router();
@@ -21,7 +22,10 @@ module.exports = (db) => {
             .then(data => {
               const otherMaps = data.rows;
               templateVars.otherMaps = otherMaps
-              res.render("routes_test", templateVars);
+              res
+              .cookie('userID', `${req.params.id}`)
+              .clearCookie('mapID')
+              .render("routes_test", templateVars);
             })
             .catch(err => {
               res
@@ -47,7 +51,9 @@ module.exports = (db) => {
       .then(data => {
         const locations = data.rows;
         const templateVars = {locations};
-        res.render("test_locations", templateVars)
+        res
+          .cookie('mapID', `${req.params.id}`)
+          .render("test_locations", templateVars)
       })
       .catch(err => {
         res
@@ -77,13 +83,13 @@ module.exports = (db) => {
       .then(data => {
         userMaps(db, req.params.id)
         .then(data => {
-          const userMaps = data.rows;
-          const templateVars = {userMaps}
-          console.log(templateVars)
+          // const userMaps = data.rows;
+          // const templateVars = {userMaps}
+          // const $button = document.querySelector('#location-widget')
+          // const mapID = $($button).attr('map-id')
+          // console.log(mapID);
+          res.status(201).send();
         })
-        // res.render("test_map_widget", templateVars)
-        //res.json(data.rows);
-        res.status(201).send();
       })
       .catch(err => {
         res

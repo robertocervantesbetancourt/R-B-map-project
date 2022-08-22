@@ -1,5 +1,5 @@
 <div id="maps-section">
-  <h1>This is the new map widget</h1>
+  <h1> <%= userID %> </h1>
   <% for (const map of userMaps) { %>
     <form class="map-button" id="map_<%=map.map_id%>" action="/map/<%= map.map_id %>" method="get">
       <input map-id="<%=map.map_id%>" type="submit" value="<%= map.map_name %>"></input>
