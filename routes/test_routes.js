@@ -1,4 +1,4 @@
-const {userProfileById, mapsFromOtherUsers, allLocationsInMap, locationInfo, newMap, userMaps} = require('../db/queries/queries_functions');
+const {userProfileById, mapsFromOtherUsers, allLocationsInMap, locationInfo, newMap, userMaps, newLocation, firstMapFromUser} = require('../db/queries/queries_functions');
 const bodyParser = require('body-parser')
 const cookieParser = require ('cookie-parser')
 
@@ -22,10 +22,29 @@ module.exports = (db) => {
             .then(data => {
               const otherMaps = data.rows;
               templateVars.otherMaps = otherMaps
-              res
-              .cookie('userID', `${req.params.id}`)
-              .clearCookie('mapID')
-              .render("routes_test", templateVars);
+              firstMapFromUser(db, req.params.id)
+              .then(data => {
+                const mapID = data.rows[0].map_id
+                allLocationsInMap(db, 3)
+                .then(data => {
+                  const locations = data.rows;
+                  templateVars.locations = locations;
+                  res
+                  .cookie('userID', `${req.params.id}`)
+                  .cookie('mapID', mapID)
+                  .render("routes_test", templateVars);
+                })
+                })
+              //})
+              //   res
+              //   .cookie('mapID', data.rows)
+              //   allLocationsInMap(db, data.rows)
+              //     .then(data => {
+              //       const locations = data.rows;
+              //       templateVars.locations = {locations};
+
+              //})
+              //})
             })
             .catch(err => {
               res
@@ -50,6 +69,7 @@ module.exports = (db) => {
     allLocationsInMap(db, req.params.id)
       .then(data => {
         const locations = data.rows;
+        console.log(locations);
         const templateVars = {locations};
         res
           .cookie('mapID', `${req.params.id}`)
@@ -78,25 +98,36 @@ module.exports = (db) => {
 
   //////////////////// POST ROUTES ///////////////////////////
 
-  router.post("/map/creator/:id", (req, res) => {
-    newMap(db, req.body.map_name,req.params.id)
+  router.post("/map", (req, res) => {
+    const userID = req.cookies.userID
+    newMap(db, req.body.map_name,userID)
+    //.then(data => {
+      //userMaps(db, userID)
       .then(data => {
-        userMaps(db, req.params.id)
-        .then(data => {
-          // const userMaps = data.rows;
-          // const templateVars = {userMaps}
-          // const $button = document.querySelector('#location-widget')
-          // const mapID = $($button).attr('map-id')
-          // console.log(mapID);
           res.status(201).send();
         })
-      })
+      //})
       .catch(err => {
         res
           .status(500)
           .json({ error: err.message });
       });
-  });
+    });
+
+  router.post("/location", (req, res) => {
+    const userID = req.cookies.userID;
+    const mapID = req.cookies.mapID;
+    newLocation(db, req.body.name, req.body.description, req.body.latitude, req.body.longitude, req.body.image, userID, mapID)
+    .then(data => {
+      res.status(201).send();
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+  })
+
 
   return router;
 };

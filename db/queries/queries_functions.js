@@ -34,5 +34,22 @@ const newMap = (db, mapName, mapCreator) => {
     VALUES ($1, $2)
     RETURNING maps.*;`, [mapName, mapCreator]
   )
+};
+
+const newLocation = (db, locationName, locationDescription, locationLatitude, locationLongitude, locationPhoto, creatorID, mapID) => {
+  return db.query(
+    `INSERT INTO locations (location_name, location_image, location_description, location_latitude, location_longitude, map_id, creator_id)
+    VALUES ($1, $2, $3, $4, $5, $6, $7)
+    RETURNING * ;`, [locationName, locationPhoto, locationDescription, locationLatitude, locationLongitude, mapID, creatorID]
+  )
+};
+
+const firstMapFromUser = (db, userID) => {
+  return db.query(
+    `SELECT map_id FROM maps
+    WHERE creator_id = $1
+    ORDER BY map_id ASC
+    LIMIT 1;`, [userID]
+  )
 }
-module.exports = {userProfileById, mapsFromOtherUsers, allLocationsInMap, locationInfo, newMap, userMaps};
+module.exports = {userProfileById, mapsFromOtherUsers, allLocationsInMap, locationInfo, newMap, userMaps, newLocation, firstMapFromUser};
