@@ -5,6 +5,9 @@ const express = require('express');
 const router  = express.Router();
 
 module.exports = (db) => {
+
+  ////////////////// GET ROUTES //////////////////
+
   router.get("/user/:id", (req, res) => {
     userProfileById(db, req.params.id)
       .then(data => {
@@ -67,10 +70,20 @@ module.exports = (db) => {
       });
   });
 
+  //////////////////// POST ROUTES ///////////////////////////
+
   router.post("/map/creator/:id", (req, res) => {
     newMap(db, req.body.map_name,req.params.id)
       .then(data => {
-        console.log(data.rows)
+        userMaps(db, req.params.id)
+        .then(data => {
+          const userMaps = data.rows;
+          const templateVars = {userMaps}
+          console.log(templateVars)
+        })
+        // res.render("test_map_widget", templateVars)
+        //res.json(data.rows);
+        res.status(201).send();
       })
       .catch(err => {
         res

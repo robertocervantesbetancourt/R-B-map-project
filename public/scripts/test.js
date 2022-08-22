@@ -27,5 +27,24 @@ $(document).ready(function(){
       })
     })
   })
-})
 
+  const $newMap = document.querySelector('#new-map')
+  $($newMap).submit(function(e){
+    e.preventDefault();
+    const message = $(this).serialize();
+    let userID = $(this).attr("user-id")
+    $.ajax({
+      url: `/map/creator/${userID}`,
+      type: 'post',
+      data: message
+    })
+    .then(function(data){
+      console.log(location.href);
+      $newMap.reset();
+      $('#test-map-widget').load(location.href + " #test-map-widget");
+    //   console.log(data)
+      //$('#maps-section').html(data)
+    })
+  })
+
+})

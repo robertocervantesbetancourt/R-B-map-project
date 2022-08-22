@@ -16,6 +16,9 @@
 
   <body >
     <div style="width:33%; margin-right:60px;">
+      <div id="test-map-widget">
+        <% include test_map_widget %>
+      </div>
       <div>
         <h1>Hello 👋, <%= user.user_name %></h1>
         <img src="<%= user.profile_photo %>" alt="profile photo">
@@ -41,7 +44,7 @@
       </div>
       <div>
         <h2>Create new map <%= user.user_id %></h2>
-        <form id="new-map" action="/map/creator/<%= user.user_id %>" method="post">
+        <form id="new-map" user-id="<%= user.user_id%>" action="/map/creator/<%= user.user_id %>" method="post">
           <label for="map_name">Map Name</label>
           <input id="map_name"type="text" name="map_name">
           <input type="submit" value="Create">
