@@ -62,9 +62,7 @@ $(document).ready(function(){
         .then(function(data){
           $newLocation.reset();
           //console.log($('#location-widget').html());
-          //$('#locations-list').load(location.href + " #locations-list");
-          console.log('data:' + data)
-          console.log('message:' + message)
+          $('#locations-list').load(location.href + " #locations-list");
         })
       })
     })
