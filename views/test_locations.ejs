@@ -7,6 +7,9 @@
     <form id="delete-location" location-id="<%=location.location_id%>" action="/location/<%=location.location_id%>/delete" method="post">
       <input type="submit" value="delete">
     </form>
+    <form class="like-button" location-id="<%=location.location_id%>" action="/location/<%= location.location_id%>/like" method="post">
+      <input type="submit" value="Like">
+    </form>
   <% } %>
 </div>
 

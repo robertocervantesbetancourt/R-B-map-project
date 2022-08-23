@@ -1,4 +1,4 @@
-const {userProfileById, mapsFromOtherUsers, allLocationsInMap, locationInfo, newMap, userMaps, newLocation, firstMapFromUser, deleteLocation} = require('../db/queries/queries_functions');
+const {userProfileById, mapsFromOtherUsers, allLocationsInMap, locationInfo, newMap, userMaps, newLocation, firstMapFromUser, deleteLocation, locationLike} = require('../db/queries/queries_functions');
 const bodyParser = require('body-parser')
 const cookieParser = require ('cookie-parser')
 
@@ -130,6 +130,19 @@ module.exports = (db) => {
     });
   })
 
+  //////////////////// LIKE ROUTES ////////////////////////////
+
+  router.post("/location/:id/like", (req, res) => {
+    locationLike(db, req.cookies.userID, req.params.id)
+    .then(data => {
+      res.status(201).send()
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+  })
 
   return router;
 };

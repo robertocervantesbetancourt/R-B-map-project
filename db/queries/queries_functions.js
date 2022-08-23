@@ -60,4 +60,11 @@ const deleteLocation = (db, locationID) => {
   )
 }
 
-module.exports = {userProfileById, mapsFromOtherUsers, allLocationsInMap, locationInfo, newMap, userMaps, newLocation, firstMapFromUser, deleteLocation};
+const locationLike = (db, userID, locationID) => {
+  return db.query(
+    `INSERT INTO liked_locations (user_id, location_id)
+    VALUES ($1, $2);`, [userID, locationID]
+  )
+}
+
+module.exports = {userProfileById, mapsFromOtherUsers, allLocationsInMap, locationInfo, newMap, userMaps, newLocation, firstMapFromUser, deleteLocation, locationLike};
