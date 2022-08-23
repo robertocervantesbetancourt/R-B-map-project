@@ -19,15 +19,6 @@ body {
   );
 }
 
-<<<<<<< HEAD
-header {
-  height: 10vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  background: #ec6443;
-}
-
 .navigation_1 {
   background: #48998d;
 }
@@ -147,25 +138,28 @@ footer .copyright_logo .copyright {
 
 footer .contact_us {
   margin-right: 12px;
-=======
-li, a, button {
-  font-family: 'Montserrat', sans-serif;
+}
+
+li,
+a,
+button {
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 16px;
   text-decoration: none;
   color: aliceblue;
 }
 
-header{
+header {
   width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   padding: 30px 10%;
-  background-color: rgba(153, 69, 83, 0.607)
+  background-color: rgba(153, 69, 83, 0.607);
 }
 
-.logo{
+.logo {
   cursor: pointer;
   margin-right: auto;
 }
@@ -194,11 +188,11 @@ button {
   border: none;
   border-radius: 50px;
   cursor: pointer;
-  transition: all 0.3s ease 0s
+  transition: all 0.3s ease 0s;
 }
 
 button:hover {
-  background-color: rgb(0,136,169,0.8);
+  background-color: rgb(0, 136, 169, 0.8);
 }
 
 footer {
@@ -211,5 +205,4 @@ footer {
   width: 100%;
   background-color: red;
   color: white;
->>>>>>> 7936dd0bf7174c5c3fb3f8b9aeffdfcb2ce781f3
 }

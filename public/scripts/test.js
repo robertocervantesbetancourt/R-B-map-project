@@ -1,9 +1,12 @@
 $(document).ready(function(){
-  const $button1 = $('#map_1');
-  $button1.on('click', function(e){
+
+  //Get route when clicking on a map or a location
+  $(".map-button input").on('click', function(e){
+    let mapId = $(this).attr("map-id");
+    console.log('The map id is ' + mapId);
     e.preventDefault()
     $.ajax({
-      url: '/map/1',
+      url: `/map/${mapId}`,
       type: 'get',
     })
     .then(function(data){
@@ -11,84 +14,81 @@ $(document).ready(function(){
       $('#locations-list').html(data)
     })
     .then(function(){
-    const $locationButton1 = $('#loc_1');
-    $locationButton1.on('click', function(e){
-      console.log('click')
-      e.preventDefault()
-      $.ajax({
-        url: '/location/1',
-        type: 'get',
-      })
-      .then(function(data){
-        console.log('ajax call...')
-        console.log(data)
-        $('#location-info').html(data)
-      })
-    })
-
-    const $locationButton2 = $('#loc_2');
-    $locationButton2.on('click', function(e){
-      console.log('click')
-      e.preventDefault()
-      $.ajax({
-        url: '/location/2',
-        type: 'get',
-      })
-      .then(function(data){
-        console.log('ajax call...')
-        console.log(data)
-        $('#location-info').html(data)
-      })
-    })
-
-    const $locationButton3 = $('#loc_3');
-    $locationButton3.on('click', function(e){
-      console.log('click')
-      e.preventDefault()
-      $.ajax({
-        url: '/location/3',
-        type: 'get',
-      })
-      .then(function(data){
-        console.log('ajax call...')
-        console.log(data)
-        $('#location-info').html(data)
+      $(".location-button input").on('click', function(e){
+        let locId = $(this).attr('location-id');
+        console.log('The location id is ' + locId);
+        e.preventDefault()
+        $.ajax({
+          url: `/location/${locId}`,
+          type: 'get',
+        })
+        .then(function(data){
+          console.log('ajax call...')
+          $('#location-info').html(data)
+        })
       })
     })
   })
 
-  })
-
-  const $button2 = $('#map_2');
-  $button2.on('click', function(e){
-    e.preventDefault()
+  //POST route when creating a new map
+  const $newMap = document.querySelector('#new-map')
+  $($newMap).submit(function(e){
+    e.preventDefault();
+    const message = $(this).serialize();
+    let userID = $(this).attr("user-id")
     $.ajax({
-      url: '/map/2',
-      type: 'get',
+      url: `/map`,
+      type: 'post',
+      data: message
     })
     .then(function(data){
-      console.log('ajax call...')
-      $('#locations-list').html(data)
+      $newMap.reset();
+      $('#test-map-widget').load(location.href + " #test-map-widget");
     })
   })
 
-  const $button3 = $('#map_3');
-  $button3.on('click', function(e){
-    e.preventDefault()
-    $.ajax({
-      url: '/map/3',
-      type: 'get',
+    //POST route when creating a new location
+    $(".map-button input").on('click', function(){
+      const $newLocation = document.querySelector('#new-location')
+      $($newLocation).submit(function(e){
+        console.log('ajax call...')
+        e.preventDefault();
+        const message = $(this).serialize();
+        $.ajax({
+          url: `/location`,
+          type: 'post',
+          data: message
+        })
+        .then(function(data){
+          $newLocation.reset();
+          //console.log($('#location-widget').html());
+          //$('#locations-list').load(location.href + " #locations-list");
+          console.log('data:' + data)
+          console.log('message:' + message)
+        })
+      })
     })
-    .then(function(data){
-      console.log('ajax call...')
-      $('#locations-list').html(data)
+
+      //POST route to delete locations
+      $(".map-button input").on('click', function(){
+      const $deleteLocation = document.querySelector('#delete-location input')
+      if ($($deleteLocation).length > 0){
+        alert ('it exists')
+      }
+      $($deleteLocation).on('click', function(e){
+        console.log('ajax cal...')
+        e.preventDefault();
+        let locationID = $(this).attr('#location-id')
+        alert (`deleting ${locationID}`)
+        const message = $(this).serialize();
+        $.ajax({
+          url: `/location/${locationID}/delete`,
+          type: 'delete',
+          data: message
+        })
+        .then(function(data){
+
+        })
+      })
     })
-  })
-
-
-
-
-
-
 })
-
