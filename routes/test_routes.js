@@ -9,7 +9,11 @@ module.exports = (db) => {
 
   ////////////////// GET ROUTES //////////////////
 
-  router.get("/user/:id", (req, res) => {
+  // router.get('/:id', (req, res) => {
+  //   res.render('index')
+  // })
+
+  router.get("/:id", (req, res) => {
     userProfileById(db, req.params.id)
       .then(data => {
         const userID = data.rows[0].user_id;
@@ -34,7 +38,7 @@ module.exports = (db) => {
                     res
                     .cookie('userID', `${req.params.id}`)
                     .cookie('mapID', mapID)
-                    .render("routes_test", templateVars);
+                    .render("index", templateVars);
                   })
                 }
                 allLocationsInMap(db, mapID)
@@ -44,7 +48,7 @@ module.exports = (db) => {
                   res
                   .cookie('userID', `${req.params.id}`)
                   .cookie('mapID', mapID)
-                  .render("routes_test", templateVars);
+                  .render("index", templateVars);
                 })
               })
             })
