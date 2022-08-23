@@ -25,7 +25,7 @@ module.exports = (db) => {
               firstMapFromUser(db, req.params.id)
               .then(data => {
                 const mapID = data.rows[0].map_id
-                allLocationsInMap(db, 3)
+                allLocationsInMap(db, mapID)
                 .then(data => {
                   const locations = data.rows;
                   templateVars.locations = locations;
