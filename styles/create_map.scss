@@ -1,0 +1,62 @@
+#newmap{
+    position: relative;
+    padding: 10px 6px;
+}
+#newmap input{
+    color: white;
+    position: relative;
+    border-radius: 5px;
+    width: 70%;
+}
+
+#newmap button{
+    position: relative;
+    // float: right;
+    font-weight: 500;
+    font-size: 16px;
+    background-color: #0d75ec;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    outline: none;
+    width: 15%;
+    height: 30px;
+    border-radius: 5px;
+    font-family: 'Poppins',sans-serif;
+}
+#maps{
+    width: 100%;
+    position: relative;
+    margin-top: 5px;
+}
+
+.map{
+    border-radius: 5px;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #939697;
+    cursor: pointer;
+    background-color: #c5e1e6;
+    height: 50px;
+    margin-bottom: 8px;
+    padding: 5px 10px;
+    display: flex;
+}
+
+.map button {
+  margin-left: 20px;
+  padding: 5px 20px;
+  background-color: #ff0000;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s
+}
+
+#newmap button:hover{
+  background-color: rgb(239, 239, 13);
+}
+
+.map button:hover {
+  background-color: rgb(239, 239, 13);
+}

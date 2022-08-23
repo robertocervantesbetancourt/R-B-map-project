@@ -1,0 +1,39 @@
+li, a {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  text-decoration: none;
+  color: aliceblue;
+}
+
+header{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 30px 10%;
+  background-color: rgba(153, 69, 83, 0.607)
+}
+
+.logo{
+  cursor: pointer;
+  margin-right: auto;
+}
+
+.nav__links {
+  list-style: none;
+}
+
+.nav__links li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.nav__links li a {
+  transition: all 0.3s ease 0s;
+}
+
+.nav__links a:hover {
+  color: #0088a9;
+}
+
