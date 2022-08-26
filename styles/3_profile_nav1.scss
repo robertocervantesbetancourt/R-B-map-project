@@ -1,0 +1,701 @@
+// ---------------------- Main Layout Design Container for the Profile & Nav1, Google API Map, & Nav2
+.container-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+// ---------- Layout Design Container for the Profile & Nav 1
+.container-section .container-profile_and_nav1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+// ----- Layout Design Container for the Profile
+.container-section .container-profile_and_nav1 .profile {
+  max-width: 100%;
+  max-height: 13vh;
+  width: 100%;
+  height: 13vh; // 70vh - 13vh = 57vh remaining
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border-bottom: 4px double;
+}
+
+// ----- Layout Design Container for the Nav1 to Create a Map List
+.container-section .container-profile_and_nav1 .nav1 {
+  max-width: 100%;
+  max-height: 7vh;
+  width: 100%;
+  height: 7vh; // 70vh - 13vh - 7vh = 50vh remaining
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border-bottom: 4px double;
+}
+
+.container-section .container-profile_and_nav1 .nav1 .nav1_label {
+  display: flex;
+  margin-right: 160px;
+  margin-bottom: 5px;
+}
+
+// Same Location inside the Nav1 to Create a Map List
+.newmap-container input {
+  color: #0d75ec;
+
+  border-radius: 5px;
+}
+
+.newmap-container button {
+  width: 60px;
+
+  background-color: #0d75ec;
+
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+
+  border: none;
+  border-radius: 5px;
+
+  cursor: pointer;
+  outline: none;
+}
+
+// ----- Layout Design Container for Nav1 to List all of Maps Made by User
+.container-section .container-profile_and_nav1 .map_list {
+  max-width: 100%;
+  max-height: 25vh;
+  width: 100%;
+  height: 25vh; // 70vh - 13vh - 7vh - 25vh = 25vh remaining
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 3px;
+
+  border-bottom: 4px double;
+}
+
+.container-section .container-profile_and_nav1 .map_list .map_list_label {
+  display: flex;
+
+  margin-right: 180px;
+  margin-bottom: 3px;
+}
+
+.container-section .container-profile_and_nav1 .map_list .map {
+  max-width: 34.75vh;
+  max-height: 22vh;
+  width: 34.75vh;
+  height: 22vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container-section .container-profile_and_nav1 .map_list .map .maps_section {
+  max-width: 100%;
+  max-height: 19vh;
+  width: 100%;
+  height: 19vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+
+.container-section
+  .container-profile_and_nav1
+  .map_list
+  .map
+  .maps_section
+  .maps_section_org {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-section
+  .container-profile_and_nav1
+  .map_list
+  .map
+  .maps_section
+  .maps_section_org
+  .map_button {
+  max-width: 80%;
+  width: 80%;
+
+  font-size: 12px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.container-section
+  .container-profile_and_nav1
+  .map_list
+  .map
+  .maps_section
+  .maps_section_org
+  .map_button
+  .map_name {
+  width: 100%;
+
+  border: none;
+  border: thick double #32a1ce;
+  border-radius: 5px;
+
+  cursor: pointer;
+
+  background: rgb(118, 207, 230);
+}
+
+.container-section
+  .container-profile_and_nav1
+  .map_list
+  .map
+  .maps_section
+  .maps_section_org
+  .map_like {
+  max-width: 10%;
+  width: 10%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: none;
+  border: thick double #32a1ce;
+  border-radius: 5px;
+
+  cursor: pointer;
+
+  background: rgb(118, 207, 230);
+
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.container-section
+  .container-profile_and_nav1
+  .map_list
+  .map
+  .maps_section
+  .maps_section_org
+  .map_delete {
+  max-width: 10%;
+  width: 10%;
+
+  border: none;
+  border: thick double #32a1ce;
+  border-radius: 5px;
+
+  cursor: pointer;
+
+  background: rgb(118, 207, 230);
+
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+// Same Location inside the List of Map Made for the Page Toggle Section
+.container-section
+  .container-profile_and_nav1
+  .map_list
+  .map
+  .maps_page_toggle_section {
+  max-width: 100%;
+  max-height: 3vh;
+  width: 100%;
+  height: 3vh;
+}
+
+.container-section
+  .container-profile_and_nav1
+  .map_list
+  .map
+  .maps_page_toggle_section
+  .maps_page_toggle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+// ----- Layout Design Container for Nav 1 to List all of Other Maps Made By Other Users
+.container-section .container-profile_and_nav1 .other_map_list {
+  max-width: 100%;
+  max-height: 25vh;
+  width: 100%;
+  height: 25vh; // 70vh - 13vh - 7vh - 25vh - 25vh= 50vh remaining
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 3px;
+}
+
+.container-section
+  .container-profile_and_nav1
+  .other_map_list
+  .other_map_label {
+  display: flex;
+  margin-right: 20px;
+  margin-bottom: 3px;
+}
+
+.container-section .container-profile_and_nav1 .other_map_list .other_map {
+  max-width: 34.75vh;
+  max-height: 22vh;
+  width: 34.75vh;
+  height: 22vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container-section
+  .container-profile_and_nav1
+  .other_map_list
+  .other_map
+  .other_maps_section {
+  max-width: 100%;
+  max-height: 19vh;
+  width: 100%;
+  height: 19vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+
+.container-section
+  .container-profile_and_nav1
+  .other_map_list
+  .other_map
+  .other_maps_section
+  .other_maps_section_org {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-section
+  .container-profile_and_nav1
+  .other_map_list
+  .other_map
+  .other_maps_section
+  .other_maps_section_org
+  .other_map_button {
+  max-width: 80%;
+  width: 80%;
+
+  font-size: 12px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-section
+  .container-profile_and_nav1
+  .other_map_list
+  .other_map
+  .other_maps_section
+  .other_maps_section_org
+  .other_map_button
+  .other_map_name {
+  width: 100%;
+
+  border: none;
+  border: thick double #32a1ce;
+  border-radius: 5px;
+
+  cursor: pointer;
+
+  background: rgb(118, 207, 230);
+}
+
+.container-section
+  .container-profile_and_nav1
+  .other_map_list
+  .other_map
+  .other_maps_section
+  .other_maps_section_org
+  .other_map_like {
+  max-width: 20%;
+  width: 20%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: none;
+  border: thick double #32a1ce;
+  border-radius: 5px;
+
+  cursor: pointer;
+
+  background: rgb(118, 207, 230);
+
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+// Same Location inside the List of Other Maps Made By Other Users for the Page Toggle Section
+.container-section
+  .container-profile_and_nav1
+  .map_list
+  .map
+  .maps_page_toggle_section {
+  max-width: 100%;
+  max-height: 3vh;
+  width: 100%;
+  height: 3vh;
+}
+
+.container-section
+  .container-profile_and_nav1
+  .other_map_list
+  .other_map
+  .other_maps_page_toggle_section
+  .other_maps_page_toggle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+// ---------- Layout Design Container for the Google API Map
+.map-body-image {
+  max-width: 70vh;
+  max-height: 70vh;
+  width: 70vh;
+  height: 70vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.map-image {
+  max-width: 70vh;
+  max-height: 70vh;
+  width: 70vh;
+  height: 70vh;
+}
+
+.map-image img {
+  max-width: 175%;
+  max-height: 175%;
+
+  height: auto;
+}
+
+// ---------- Layout Design Container for the Nav2
+.container-section .nav2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+// ----- Layout Design Container for Nav2 to Create a New Location by the User
+.container-section .nav2 .locations-container {
+  max-width: 100%;
+  max-height: 23vh;
+  width: 100%;
+  height: 23vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border-bottom: 4px double;
+}
+
+.container-section .nav2 .locations-container .nav2_label {
+  display: flex;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  margin-right: 140px;
+}
+
+// Same Location inside the Nav2 to Create a New Location List
+.nav2-form {
+  max-width: 34vh;
+  width: 34vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.nav2-form_container {
+  display: flex;
+  flex-direction: row;
+}
+
+.nav2-form_label {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
+
+  margin: 5px;
+
+  font-size: 8px;
+}
+
+.nav2-form_input input {
+  max-width: 25vh;
+  max-height: 2.5vh;
+  width: 25vh;
+  height: 2.5vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
+
+  margin: 5px;
+
+  font-size: 10px;
+
+  color: #0d75ec;
+
+  border-radius: 5px;
+}
+
+.nav2_add_location_button {
+  max-width: 30vh;
+  max-height: 3vh;
+  width: 30vh;
+  height: 3vh;
+
+  background-color: #0d75ec;
+
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+
+  border: none;
+  border-radius: 5px;
+
+  cursor: pointer;
+  outline: none;
+
+  margin-left: 15px;
+  margin-bottom: 3px;
+}
+
+// ----- Layout Design Container for Nav2 to List all of Locations Made in a Map by a User
+.container-section .nav2 .locations_list_container {
+  max-width: 100%;
+  max-height: 44vh;
+  width: 100%;
+  height: 44vh; // 70vh - 23vh - 44vh= 3vh remaining
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 3px;
+}
+
+.container-section .nav2 .locations_list_container .location_list_label {
+  display: flex;
+
+  margin-right: 70px;
+  margin-bottom: 3px;
+}
+
+.container-section .nav2 .locations_list_container .location {
+  max-width: 34.75vh;
+  max-height: 41vh;
+  width: 34.75vh;
+  height: 41vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container-section .nav2 .locations_list_container .location .location_section {
+  max-width: 100%;
+  max-height: 19vh;
+  width: 100%;
+  height: 19vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+
+.container-section
+  .nav2
+  .locations_list_container
+  .location
+  .location_section
+  .location_section_org {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-section
+  .nav2
+  .locations_list_container
+  .location
+  .location_section
+  .location_section_org
+  .location_button {
+  max-width: 80%;
+  width: 80%;
+
+  font-size: 12px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.container-section
+  .nav2
+  .locations_list_container
+  .location
+  .location_section
+  .location_section_org
+  .location_button
+  .location_name {
+  width: 100%;
+
+  border: none;
+  border: thick double #32a1ce;
+  border-radius: 5px;
+
+  cursor: pointer;
+
+  background: rgb(118, 207, 230);
+}
+
+.container-section
+  .nav2
+  .locations_list_container
+  .location
+  .location_section
+  .location_section_org
+  .location_like {
+  max-width: 5vh;
+  width: 5vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: none;
+}
+
+.container-section
+  .nav2
+  .locations_list_container
+  .location
+  .location_section
+  .location_section_org
+  .location_like
+  button {
+  cursor: pointer;
+
+  background: rgb(118, 207, 230);
+
+  border: thick double #32a1ce;
+  border-radius: 5px;
+
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.container-section
+  .nav2
+  .locations_list_container
+  .location
+  .location_section
+  .location_section_org
+  .location_delete {
+  max-width: 3vh;
+  width: 3vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: none;
+}
+
+.container-section
+  .nav2
+  .locations_list_container
+  .location
+  .location_section
+  .location_section_org
+  .location_delete
+  button {
+  cursor: pointer;
+
+  background: rgb(118, 207, 230);
+
+  border: thick double #32a1ce;
+  border-radius: 5px;
+
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+// Same Location inside the List of Locations Made By a User for the Page Toggle Section
+.container-section
+  .nav2
+  .locations_list_container
+  .location_page_toggle_section {
+  max-width: 100%;
+  max-height: 3vh;
+  width: 100%;
+  height: 3vh; // 70vh - 23vh - 44vh - 3vh= 0vh remaining
+}
+
+.container-section
+  .nav2
+  .locations_list_container
+  .location_page_toggle_section
+  .location_page_toggle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}

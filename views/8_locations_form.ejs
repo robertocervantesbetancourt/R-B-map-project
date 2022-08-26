@@ -1,0 +1,31 @@
+<div id="new-locations">
+  <h5  class="location_list_label">Here are the locations in the map:</h5>
+  <div class="location" >
+    <div  class="location_section">
+      <% for (const location of locations) { %>
+        <div class="location_section_org locations">
+          <p>📌</p>
+          <form class="location_button" id="loc_<%=location.location_id%>" action="/location/<%= location.location_id %>" method="get">
+            <input class="location_name" location-id="<%=location.location_id%>" type="submit" value="<%= location.location_name %>"></input>
+          </form>
+          <form delete-id="delete-location" class="location_like" location-id="<%=location.location_id%>" action="/location/<%= location.location_id%>/like" method="post">
+            <!-- <button type="submit" value="like">🧡</button> -->
+            <input like-id="<%= location.location_id %>" type="submit" value="❤️">
+          </form>
+          <form delete-id="delete-location" class="location_delete" id="delete_location" location-id="<%=location.location_id%>" action="/location/<%=location.location_id%>/delete" method="post">
+            <!-- <button type="submit" value="delete">🗑</button> -->
+            <input delete-id="<%= location.location_id %>" type="submit" value="🗑">
+          </form>
+        </div>
+      <% } %>
+    </div>
+  </div>
+  <div class="location_page_toggle_section">
+    <ul class="location_page_toggle">
+      <li><</li>
+      <li>1</li>
+      <li>></li>
+    </ul>
+  </div>
+
+</div>

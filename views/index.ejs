@@ -1,94 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
     <title>Wiki Map</title>
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="../styles/main.css" type="text/css" />
 
-    <!-- CSS only
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
- -->
+    <link rel="stylesheet" href="/styles/0_main.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/1_layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/2_header.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/3_profile_nav1.css" type="text/css"/>
+    <link rel="stylesheet" href="/styles/4_location_info.css" type="text/css"/>
+    <link rel="stylesheet" href="/styles/5_footer.css" type="text/css" />
+
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script src="/scripts/test5.js"></script>
 
   </head>
-  <body>
-    <header>
-      <% include header %>
-      <!-- <p>
-        Header Area:
-        for the group logo / name, User-name, and login/logout
-        button access -->
-      <!-- </p> -->
-    </header>
 
-    <div class="nav-container">
-      <div class="navigation_1">
-        <p>
-          (Left) Map user list Area:
-          <!-- Other Maps (non-authenticated)/ Create New
-          List (authanticated), your created list of map with like and delete,
-          Other maps drop down list -->
-        </p>
-      </div>
+  <body class="main_body">
+    <!-- Container for the Main Header Section -->
+    <header class="container-header"><% include 1_header %></header>
 
-      <div class="map-body-image">
-        <p>Image of Google Map Where we will put the google maps api</p>
-      </div>
+    <!-- Container for Main Profile and Nav1, Google Map API, and Nav2 Section -->
+    <section class="container-section">
+      <!-- Container for Profile and Nav1 Portion -->
+      <section class="container-profile_and_nav1">
+        <!-- Container for Profile Picture -->
+        <div class="profile"><% include 2_profile %></div>
 
-      <div class="navigation_2">
-        <% include location %>
-      </div>
-    </div>
+        <!-- Container for Nav1 to Create a new Map List -->
+        <nav class="nav1"><% include 3_map %></nav>
 
-    <div class="main-body">
-      <% include location_info %>
-    </div>
+        <!-- Container for Nav1 to List all of Maps Made by User -->
+        <div id="maps-section" class="map_list"><% include 4_map_widget %></div>
 
-    <footer>
-      <div class="copyright_logo">
-        <p class="logo">LOGO</p>
-        <p class="copyright">© R&B All rights reserved</p>
-      </div>
-      <p class="contact_us">Contact Us!</p>
+        <!-- Container for Nav1 to List all of the Other Maps Made by Other Users -->
+        <div class="other_map_list"><% include 5_other_map_widget %></div>
+      </section>
+
+      <!-- Container for the Google API Map Portion -->
+      <section class="map-body-image">
+        <%- include 6_google_api_map %>
+      </section>
+
+      <!-- Container for the Nav2 to Create and List the Locations Portion -->
+      <nav class="nav2">
+        <!-- Container for Nav2 to Create a New Location by the User -->
+        <div class="locations-container"><% include 7_location %></div>
+
+        <!-- Container for Nav2 to List all of Locations Made in a Map by a User -->
+        <div class="locations_list_container">
+          <% include 8_locations_form %>
+        </div>
+      </nav>
+    </section>
+
+    <!-- Container for the Location Information -->
+    <section id="location-info" class="location_info"><% include 9_location_info %></section>
+
+    <!-- Container for Footer -->
+    <footer class="footer">
+      <% include 10_footer %>
     </footer>
 
-      <!-- <img class="logo" src="images/logo.png" alt="logo">
-      <nav>
-        <ul class="nav__links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Login</a></li>
-          <li><a href="#">Register</a></li>
-        </ul>
-      </nav>
-      <a class="cta" href="#"><button>Map Lists</button></a>
-    </header> -->
-      <div id="navigation_1">
-        <h2>
-          (Left) Map user list Area: Other Maps (non-authenticated)/ Create New
-          List (authanticated), your created list of map with like and delete,
-          Other maps drop down list
-        </h2>
-      </div>
-      <div id="map-body-image">
-        <h2>Image of Google Map Where we will put the google maps api</h2>
-      </div>
-      <div id="navigation_2">
-        <h2>
-          (Right Side) Map location user created: Add Location, Map marker icon,
-          name, like, delete, pagination below (maybe)
-        </h2>
-      </div>
-      <div id="main-body">
-        <h2>Location, Description, How many Likes there is, Uploaded Image</h2>
-      </div>
-      <footer>
-        <h2>Group name / image, copyright **All right Reserved**, Contact Us</h2>
-      </footer>
-<!-- JavaScript Bundle with Popper -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script> -->
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCGllmxcvsOUnU--uDTP7V7S0s89vCfOw&callback=initMap"></script>
   </body>
-  </html>
+</html>

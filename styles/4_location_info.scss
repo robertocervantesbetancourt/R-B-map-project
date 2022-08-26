@@ -1,0 +1,296 @@
+// ---------------------- Main Layout Design Container for the Location Information
+.location_info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// ----- Design Container for the Location Details
+.location_info .location_details {
+  max-width: 95vh;
+  max-height: 35vh;
+  width: 95vh;
+  height: 35vh;
+
+  display: flex;
+  flex-direction: column;
+
+  margin-left: 3vh;
+  margin-right: 3vh;
+
+  font-size: 8px;
+
+  // border: 3px solid #333; /*border here*/
+}
+
+// Design Container for the Location Pin Details: Pin, Location Name, Latitude & Longitude
+.location_info .location_details .location_pin_details {
+  max-width: 95vh;
+  max-height: 7vh;
+  width: 95vh;
+  height: 7vh;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  margin-bottom: 10px;
+}
+
+.location_info .location_details .location_pin_details .location_info_pin {
+  max-width: 7vh;
+  max-height: 7vh;
+  width: 7vh;
+  height: 7vh;
+
+  font-size: 5vh;
+
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.location_info .location_details .location_pin_details .location_name_details {
+  max-width: 80vh;
+  max-height: 7vh;
+  width: 80vh;
+  height: 7vh;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.location_info
+  .location_details
+  .location_pin_details
+  .location_name_details
+  .location_name_container {
+  max-width: 20vh;
+  max-height: 6vh;
+  width: 20vh;
+  height: 6vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.location_info
+  .location_details
+  .location_pin_details
+  .location_name_details
+  .location_name_container
+  .location_name_result {
+  font-size: 16px;
+}
+
+.location_info
+  .location_details
+  .location_pin_details
+  .location_name_details
+  .location_name_container
+  .location_name_label {
+  max-width: 20vh;
+  width: 20vh;
+
+  display: flex;
+  justify-content: center;
+
+  margin-top: 3px;
+
+  font-size: 10px;
+
+  border-top: 3px solid;
+}
+
+.location_info
+  .location_details
+  .location_pin_details
+  .location_name_details
+  .location_latitude_container {
+  max-width: 20vh;
+  max-height: 6vh;
+  width: 20vh;
+  height: 6vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.location_info
+  .location_details
+  .location_pin_details
+  .location_name_details
+  .location_latitude_container
+  .location_latitude_result {
+  font-size: 16px;
+}
+
+.location_info
+  .location_details
+  .location_pin_details
+  .location_name_details
+  .location_latitude_container
+  .location_latitude_label {
+  max-width: 20vh;
+  width: 20vh;
+
+  display: flex;
+  justify-content: center;
+
+  margin-top: 3px;
+
+  font-size: 10px;
+
+  border-top: 3px solid;
+}
+
+.location_info
+  .location_details
+  .location_pin_details
+  .location_name_details
+  .location_longitude_container {
+  max-width: 20vh;
+  max-height: 6vh;
+  width: 20vh;
+  height: 6vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.location_info
+  .location_details
+  .location_pin_details
+  .location_name_details
+  .location_longitude_container
+  .location_longitude_result {
+  font-size: 16px;
+}
+
+.location_info
+  .location_details
+  .location_pin_details
+  .location_name_details
+  .location_longitude_container
+  .location_longitude_label {
+  max-width: 20vh;
+  width: 20vh;
+
+  display: flex;
+  justify-content: center;
+
+  margin-top: 3px;
+
+  font-size: 10px;
+
+  border-top: 3px solid;
+}
+
+// Design Container for the Location Description Details
+.location_info .location_details .location_description_details {
+  max-width: 94vh;
+  max-height: 22vh;
+  width: 94vh;
+  height: 22vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.location_info
+  .location_details
+  .location_description_details
+  .location_description_label {
+  font-size: 12px;
+
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+.location_info
+  .location_details
+  .location_description_details
+  .location_description_result {
+  max-width: 92.75vh;
+  max-height: 25vh;
+  width: 92.75vh;
+  height: 25vh;
+
+  font-size: 14px;
+
+  margin-left: 5px;
+
+  border: 1px solid #111; /*border here*/
+}
+
+// Design Container for the Location Likes Details
+.location_info .location_details .like_count {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.location_info .location_details .like_count .like_heart {
+  max-width: 3vh;
+  max-height: 3vh;
+  width: 3vh;
+  height: 3vh;
+
+  margin-top: 4px;
+  margin-right: 3px;
+
+  border: 1px solid #333;
+  border-radius: 3px;
+
+  cursor: pointer;
+
+  background: none;
+
+  font-size: 14px;
+}
+
+.location_info .location_details .like_count .like_count {
+  margin-top: 4px;
+
+  font-size: 10px;
+}
+
+// ----- Design Container for the Location Information Image
+.location_info .location_image {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+
+  max-width: 35vh;
+  max-height: 35vh;
+  width: 35vh;
+  height: 35vh;
+
+  margin-right: 3vh;
+
+  box-shadow: 0 5px 25px rgb(1 1 1/20%);
+  border: 3px solid #333; /*border here*/
+  border-radius: 10px;
+}
+
+.location_info .location_image .location_image_container {
+  max-height: 200px;
+}
+
+.location_info .location_image .location_image_container img {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+}
