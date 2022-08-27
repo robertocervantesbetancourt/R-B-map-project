@@ -1,7 +1,0 @@
-<div id="maps-section">
-  <% for (const map of userMaps) { %>
-    <form class="map-button" id="map_<%=map.map_id%>" action="/map/<%= map.map_id %>" method="get">
-      <input map-id="<%=map.map_id%>" type="submit" value="<%= map.map_name %>"></input>
-    </form>
-  <% } %>
-</div>

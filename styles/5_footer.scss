@@ -1,0 +1,33 @@
+footer .copyright_logo {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 12px;
+}
+
+// ---------------------- Main Layout Design Container for the Footer
+footer .copyright_logo .logo {
+  margin-top: 2px;
+}
+
+footer .copyright_logo .copyright {
+  margin-top: 0px;
+}
+
+footer .contact_us {
+  margin-right: 12px;
+}
+
+footer {
+  height: 5vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 8px;
+  align-items: flex-end;
+  // position: fixed; // ADJUST THIS LATER IF IT IS NEEDED
+  left: 0;
+  bottom: 0;
+  color: white;
+}

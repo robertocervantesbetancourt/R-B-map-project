@@ -18,14 +18,26 @@ const mapsFromOtherUsers = (db, id) => {
 
 const allLocationsInMap = (db, id) => {
   return db.query(
-    `SELECT locations.* FROM locations
-    WHERE map_id = $1;`, [id]);
+    // `SELECT locations.* FROM locations
+    // WHERE map_id = $1;`
+    `SELECT locations.*, COALESCE(COUNT(liked_locations.location_id), 0) as likes
+    FROM locations LEFT JOIN liked_locations
+    ON locations.location_id = liked_locations.location_id
+    GROUP BY location_name, locations.location_id, liked_locations.location_id
+    HAVING map_id = $1
+    ORDER BY location_id;`
+    , [id]);
 };
 
-const locationInfo = (db, id) => {
+const locationInfo = (db, locationID) => {
   return db.query(
-    `SELECT locations.* FROM locations
-    WHERE location_id = $1;`, [id]);
+    `SELECT locations.*, COALESCE(COUNT(liked_locations.location_id), 0) as likes
+    FROM locations LEFT JOIN liked_locations
+    ON locations.location_id = liked_locations.location_id
+    GROUP BY location_name, locations.location_id, liked_locations.location_id
+    HAVING locations.location_id = $1
+    ORDER BY location_id;` , [locationID]
+  )
 };
 
 const newMap = (db, mapName, mapCreator) => {
@@ -67,4 +79,24 @@ const locationLike = (db, userID, locationID) => {
   )
 }
 
-module.exports = {userProfileById, mapsFromOtherUsers, allLocationsInMap, locationInfo, newMap, userMaps, newLocation, firstMapFromUser, deleteLocation, locationLike};
+const firstLocationInMap = (db, mapID) => {
+  return db.query(
+    `SELECT location_id FROM locations
+    WHERE map_id = $1
+    LIMIT 1;`, [mapID]
+  )
+}
+
+module.exports = {
+  userProfileById,
+  mapsFromOtherUsers,
+  allLocationsInMap,
+  locationInfo,
+  newMap,
+  userMaps,
+  newLocation,
+  firstMapFromUser,
+  deleteLocation,
+  locationLike,
+  firstLocationInMap
+};

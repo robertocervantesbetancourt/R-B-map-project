@@ -1,0 +1,40 @@
+<!-- Container for the Location Details -->
+<div class="location_details">
+  <!-- Container for the Location Pin Details -->
+  <div class="location_pin_details">
+    <p class="location_info_pin">📌</p>
+    <div class="location_name_details">
+      <div class="location_name_container">
+        <p class="location_name_result"><%=location.location_name%></p>
+        <p class="location_name_label">Location Name</p>
+      </div>
+      <div class="location_latitude_container">
+        <p class="location_latitude_result"><%= location.location_latitude %></p>
+        <p class="location_latitude_label">Latitude</p>
+      </div>
+      <div class="location_longitude_container">
+        <p class="location_longitude_result"><%= location.location_longitude %></p>
+        <p class="location_longitude_label">Longitude</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Container for the Location Description Details -->
+  <div class="location_description_details">
+    <p class="location_description_label">Description:</p>
+    <p class="location_description_result"><%= location.location_description %></p>
+  </div>
+
+  <!-- Container for the Location Likes Details -->
+  <div class="like_count">
+    <button class="like_heart">❤</button>
+    <p><%= location.likes %> likes</p>
+  </div>
+</div>
+
+<!-- Container for the Location Information Image -->
+<div class="location_image">
+  <div class="location_image_container">
+    <img src="<%= location.location_image %>" alt="logo" />
+  </div>
+</div>

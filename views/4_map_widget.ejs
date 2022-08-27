@@ -1,0 +1,21 @@
+<h5  class="map_list_label">My Map List:</h5>
+<div class="map">
+  <div  class="maps_section">
+    <% for (const map of userMaps) { %>
+      <div class="maps_section_org">
+        <form class="map_button map-button" id="map_<%=map.map_id%>" action="/map/<%= map.map_id %>" method="get">
+          <input class="map_name" map-id="<%=map.map_id%>" type="submit" value="<%= map.map_name %>"></input>
+        </form>
+        <button class="map_like">💛</button>
+        <button class="map_delete">🗑</button>
+      </div>
+    <% } %>
+  </div>
+  <div class="maps_page_toggle_section">
+    <ul class="maps_page_toggle">
+      <li><</li>
+      <li>1</li>
+      <li>></li>
+    </ul>
+  </div>
+</div>

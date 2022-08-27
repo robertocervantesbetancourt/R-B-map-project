@@ -1,0 +1,86 @@
+// See: https://sass-lang.com/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+// ---------------------- Main Layout Design Container for the Header
+.container-header {
+  width: 140vh; /**/
+  height: 10vh; /**/
+
+  // border: 3px solid #333; /*border here*/
+  border-color: #333;
+  border-style: solid;
+  border-width: 3px 3px 0px 3px; /* top, right, bottom, left */
+}
+
+// ---------------------- Main Layout Design Container for the Profile & Nav1, Google API Map, & Nav2
+.container-section {
+  width: 140vh; /**/
+  height: 70vh; /**/
+}
+
+// ---------- Layout Design Container for the Profile & Nav 1
+.container-profile_and_nav1 {
+  width: 25%;
+  height: 100%;
+
+  // border: 3px solid #333; /*border here*/
+  border-color: #333;
+  border-style: solid;
+  border-width: 3px 0px 3px 3px; /* top, right, bottom, left */
+}
+
+// ---------- Layout Design Container for the Google API Map
+.map-body-image {
+  width: 50%;
+  height: 100%;
+
+  // border: 3px solid #333; /*border here*/
+  border-color: #333;
+  border-style: solid;
+  border-width: 3px 3px 3px 3px; /* top, right, bottom, left */
+}
+
+// ---------- Layout Design Container for the Nav2
+.nav2 {
+  width: 25%;
+  height: 100%;
+
+  // border: 3px solid #333; /*border here*/
+  border-color: #333;
+  border-style: solid;
+  border-width: 3px 3px 3px 0px; /* top, right, bottom, left */
+}
+
+// ---------------------- Main Layout Design Container for the Location Information
+.location_info {
+  width: 140vh; /**/
+  height: 40vh; /**/
+
+  // border: 3px solid #333; /*border here*/
+  border-color: #333;
+  border-style: solid;
+  border-width: 0px 3px 0px 3px; /* top, right, bottom, left */
+}
+
+// ---------------------- Main Layout Design Container for the Footer
+.footer {
+  width: 140vh; /**/
+  height: 5vh; /**/
+
+  // border: 3px solid #333; /*border here*/
+  border-color: #333;
+  border-style: solid;
+  border-width: 3px 3px 3px 3px; /* top, right, bottom, left */
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}

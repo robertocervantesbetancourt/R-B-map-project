@@ -1,0 +1,20 @@
+<h5 class="other_map_label">Here are some maps created by other users:</h5>
+<div class="other_map">
+  <div class="other_maps_section">
+    <% for(const map of otherMaps) { %>
+      <div class="other_maps_section_org">
+        <form class="other_map_button map-button" id="map_<%=map.map_id%>" action="/map/<%= map.map_id %>" method="get">
+          <input class="other_map_name" map-id="<%=map.map_id%>" type="submit" value="<%= map.map_name %>"></input>
+        </form>
+        <button class="other_map_like">💛</button>
+      </div>
+    <% } %>
+  </div>
+  <div class="other_maps_page_toggle_section">
+    <ul class="other_maps_page_toggle">
+      <li><</li>
+      <li>1</li>
+      <li>></li>
+    </ul>
+  </div>
+</div>

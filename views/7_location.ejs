@@ -1,0 +1,28 @@
+<h5  class="nav2_label">Add a New Location:</h5>
+<form class="nav2-form" id="new-location" action="/location" method="post">
+  <div class="nav2-form_container" >
+    <div class="nav2-form_label">
+      <label for="name">Name</label>
+      <label for="description">Description</label>
+      <label for="latitude">Latitude</label>
+      <label for="longitude">Longitude</label>
+      <label for="image">Image</label>
+    </div>
+    <div class="nav2-form_input">
+      <input type="text" name="name" placeholder="eg. Los Pollos Hermanos" />
+      <input
+        type="text"
+        name="description"
+        placeholder="eg. Best Fried Chicken in Toronto"
+      />
+      <input id="latitude" type="text" name="latitude" placeholder="eg. 35.05774" />
+      <input id="longitude"  type="text" name="longitude" placeholder="eg. -106.63033" />
+      <input
+        type="text"
+        name="image"
+        placeholder="eg. https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200"
+      />
+    </div>
+  </div>
+  <input class="nav2_add_location_button" type="submit" value="Add Location" />
+</form>
