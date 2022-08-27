@@ -3,7 +3,7 @@
 // $("body").hide(); // Test to see if this script is connected to index.ejs
 
 let numberOfItemsMap = $(".maps_section .maps_section_org").length;
-let limitPerPageMap = 4;
+let limitPerPageMap = 3;
 
 $(".maps_section .maps_section_org:gt(" + (limitPerPageMap - 1) + ")").hide();
 

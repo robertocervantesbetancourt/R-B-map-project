@@ -5,7 +5,7 @@
 let numberOfItemsOtherMap = $(
   ".other_maps_section .other_maps_section_org"
 ).length;
-let limitPerPageOtherMap = 4;
+let limitPerPageOtherMap = 3;
 
 $(
   ".other_maps_section .other_maps_section_org:gt(" +

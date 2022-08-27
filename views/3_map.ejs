@@ -1,16 +1,22 @@
 <h5 class="nav1_label">Create New Map:</h5>
-<form id="new-map" user-id="<%= user.user_id%>" class="nav1-form" action="/map" method="POST">
+<form
+  id="new-map"
+  user-id="<%= user.user_id%>"
+  class="nav1-form"
+  action="/map"
+  method="POST"
+>
   <div class="container-nav1">
     <div class="newmap-container" id="newmap">
       <input
         class="newmap-input"
         type="text"
-        maxlength="20"
+        maxlength="30"
         placeholder="Add Maps"
         name="map_name"
       />
       <!-- <button class="newmap-button" id="push">Add</button> -->
-      <input input-id="create" type="submit" value="Add">
+      <input input-id="create" type="submit" value="Add" />
     </div>
     <div id="maps"></div>
   </div>
