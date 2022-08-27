@@ -15,61 +15,68 @@
     <link rel="stylesheet" href="/styles/0_main.css" type="text/css" />
     <link rel="stylesheet" href="/styles/1_layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/2_header.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/3_profile_nav1.css" type="text/css"/>
-    <link rel="stylesheet" href="/styles/4_location_info.css" type="text/css"/>
+    <link rel="stylesheet" href="/styles/3_profile_nav1.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/4_location_info.css" type="text/css" />
     <link rel="stylesheet" href="/styles/5_footer.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script src="/scripts/test5.js"></script>
-
   </head>
 
   <body class="main_body">
     <!-- Container for the Main Header Section -->
-    <header class="container-header"><% include 1_header %></header>
+    <header class="container-header"><%- include ('1_header') %></header>
 
     <!-- Container for Main Profile and Nav1, Google Map API, and Nav2 Section -->
     <section class="container-section">
       <!-- Container for Profile and Nav1 Portion -->
       <section class="container-profile_and_nav1">
         <!-- Container for Profile Picture -->
-        <div class="profile"><% include 2_profile %></div>
+        <div class="profile"><%- include ('2_profile') %></div>
 
         <!-- Container for Nav1 to Create a new Map List -->
-        <nav class="nav1"><% include 3_map %></nav>
+        <nav class="nav1"><%- include ('3_map') %></nav>
 
         <!-- Container for Nav1 to List all of Maps Made by User -->
-        <div id="maps-section" class="map_list"><% include 4_map_widget %></div>
+        <div id="maps-section" class="map_list">
+          <%- include ('4_map_widget') %>
+        </div>
 
         <!-- Container for Nav1 to List all of the Other Maps Made by Other Users -->
-        <div class="other_map_list"><% include 5_other_map_widget %></div>
+        <div class="other_map_list"><%- include ('5_other_map_widget') %></div>
       </section>
 
       <!-- Container for the Google API Map Portion -->
       <section class="map-body-image">
-        <%- include 6_google_api_map %>
+        <%- include ('6_google_api_map') %>
       </section>
 
       <!-- Container for the Nav2 to Create and List the Locations Portion -->
       <nav class="nav2">
         <!-- Container for Nav2 to Create a New Location by the User -->
-        <div class="locations-container"><% include 7_location %></div>
+        <div class="locations-container"><%- include ('7_location') %></div>
 
         <!-- Container for Nav2 to List all of Locations Made in a Map by a User -->
         <div class="locations_list_container">
-          <% include 8_locations_form %>
+          <%- include ('8_locations_form') %>
         </div>
       </nav>
     </section>
 
     <!-- Container for the Location Information -->
-    <section id="location-info" class="location_info"><% include 9_location_info %></section>
+    <section id="location-info" class="location_info">
+      <%- include ('9_location_info') %>
+    </section>
 
     <!-- Container for Footer -->
-    <footer class="footer">
-      <% include 10_footer %>
-    </footer>
+    <footer class="footer"><%- include ('10_footer') %></footer>
 
-    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCGllmxcvsOUnU--uDTP7V7S0s89vCfOw&callback=initMap"></script>
+    <script
+      async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCGllmxcvsOUnU--uDTP7V7S0s89vCfOw&callback=initMap"
+    ></script>
+    <script src="/scripts/nav2-pagination.js"></script>
+    <script src="/scripts/map_widget_pagination.js"></script>
+    <script src="/scripts/other_map_widget_pagination.js"></script>
   </body>
 </html>

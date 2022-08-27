@@ -1,8 +1,8 @@
 <h5 class="other_map_label">Here are some maps created by other users:</h5>
 <div class="other_map">
-  <div class="other_maps_section">
+  <div class="other_maps_section"> <!-- Main Container to Hold the Paginated page -->
     <% for(const map of otherMaps) { %>
-      <div class="other_maps_section_org">
+      <div class="other_maps_section_org"> <!-- loop container -->
         <form class="other_map_button map-button" id="map_<%=map.map_id%>" action="/map/<%= map.map_id %>" method="get">
           <input class="other_map_name" map-id="<%=map.map_id%>" type="submit" value="<%= map.map_name %>"></input>
         </form>
@@ -10,11 +10,14 @@
       </div>
     <% } %>
   </div>
-  <div class="other_maps_page_toggle_section">
-    <ul class="other_maps_page_toggle">
-      <li><</li>
-      <li>1</li>
-      <li>></li>
+  <!-- Other Map List Pagination -->
+  <nav class="other_maps_pagination_section" aria-label="Page navigation">
+    <ul class="other_maps_pagination">
+      <li class="page-item previous_other_map_page">
+        <a href="javascript:void(0)" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
     </ul>
-  </div>
+  </nav>
 </div>
