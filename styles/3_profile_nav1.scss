@@ -219,23 +219,83 @@
   .container-profile_and_nav1
   .map_list
   .map
-  .maps_page_toggle_section {
+  .maps_pagination_section {
   max-width: 100%;
-  max-height: 3vh;
+  max-height: 5vh;
   width: 100%;
-  height: 3vh;
+  height: 5vh;
 }
 
 .container-section
   .container-profile_and_nav1
   .map_list
   .map
-  .maps_page_toggle_section
-  .maps_page_toggle {
+  .maps_pagination_section
+  .maps_pagination {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
+  text-align: center;
+  margin: 2px 5px 5px; /*top, bottom, side*/
+  user-select: none;
+}
+
+.container-section
+  .container-profile_and_nav1
+  .map_list
+  .map
+  .maps_pagination_section
+  .maps_pagination
+  li {
+  display: inline;
+  margin: 5px;
+  box-shadow: 0 5px 25px rgb(1 1 1/10%);
+}
+
+.container-section
+  .container-profile_and_nav1
+  .map_list
+  .map
+  .maps_pagination_section
+  .maps_pagination
+  li {
+  color: #fff;
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 24px;
+}
+
+.previous_map_page,
+.next_map_page {
+  background: #0ab1ce;
+  width: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.previous_map_page:hover {
+  transform: translateX(-5px);
+  border: 1px solid #0d75ec;
+}
+
+.next_map_page:hover {
+  transform: translateX(5px);
+  border: 1px solid #0d75ec;
+}
+
+.current_map_page {
+  background: #ccc;
+  width: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.active {
+  background: #0ab1ce;
 }
 
 // ----- Layout Design Container for Nav 1 to List all of Other Maps Made By Other Users
@@ -368,25 +428,85 @@
 // Same Location inside the List of Other Maps Made By Other Users for the Page Toggle Section
 .container-section
   .container-profile_and_nav1
-  .map_list
-  .map
-  .maps_page_toggle_section {
+  .other_map_list
+  .other_map
+  .other_maps_pagination_section {
   max-width: 100%;
-  max-height: 3vh;
+  max-height: 5vh;
   width: 100%;
-  height: 3vh;
+  height: 5vh;
 }
 
 .container-section
   .container-profile_and_nav1
   .other_map_list
   .other_map
-  .other_maps_page_toggle_section
-  .other_maps_page_toggle {
+  .other_maps_pagination_section
+  .other_maps_pagination {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
+  text-align: center;
+  margin: 2px 5px 5px; /*top, bottom, side*/
+  user-select: none;
+}
+
+.container-section
+  .container-profile_and_nav1
+  .other_map_list
+  .other_map
+  .other_maps_pagination_section
+  .other_maps_pagination
+  li {
+  display: inline;
+  margin: 5px;
+  box-shadow: 0 5px 25px rgb(1 1 1/10%);
+}
+
+.container-section
+  .container-profile_and_nav1
+  .other_map_list
+  .other_map
+  .other_maps_pagination_section
+  .other_maps_pagination
+  li {
+  color: #fff;
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 24px;
+}
+
+.previous_other_map_page,
+.next_other_map_page {
+  background: #0ab1ce;
+  width: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.previous_other_map_page:hover {
+  transform: translateX(-5px);
+  border: 1px solid #0d75ec;
+}
+
+.next_other_map_page:hover {
+  transform: translateX(5px);
+  border: 1px solid #0d75ec;
+}
+
+.current_other_map_page {
+  background: #ccc;
+  width: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.active {
+  background: #0ab1ce;
 }
 
 // ---------- Layout Design Container for the Google API Map
@@ -529,14 +649,18 @@
   margin-top: 3px;
 }
 
-.container-section .nav2 .locations_list_container .location_list_label {
+.container-section
+  .nav2
+  .locations_list_container
+  #new-locations
+  .location_list_label {
   display: flex;
 
-  margin-right: 70px;
+  margin-left: 5px;
   margin-bottom: 3px;
 }
 
-.container-section .nav2 .locations_list_container .location {
+.container-section .nav2 .locations_list_container #new-locations .location {
   max-width: 34.75vh;
   max-height: 41vh;
   width: 34.75vh;
@@ -548,7 +672,12 @@
   align-items: center;
 }
 
-.container-section .nav2 .locations_list_container .location .location_section {
+.container-section
+  .nav2
+  .locations_list_container
+  #new-locations
+  .location
+  .location_section {
   max-width: 100%;
   max-height: 19vh;
   width: 100%;
@@ -563,6 +692,7 @@
 .container-section
   .nav2
   .locations_list_container
+  #new-locations
   .location
   .location_section
   .location_section_org {
@@ -575,6 +705,7 @@
 .container-section
   .nav2
   .locations_list_container
+  #new-locations
   .location
   .location_section
   .location_section_org
@@ -590,6 +721,7 @@
 .container-section
   .nav2
   .locations_list_container
+  #new-locations
   .location
   .location_section
   .location_section_org
@@ -609,6 +741,7 @@
 .container-section
   .nav2
   .locations_list_container
+  #new-locations
   .location
   .location_section
   .location_section_org
@@ -626,11 +759,12 @@
 .container-section
   .nav2
   .locations_list_container
+  #new-locations
   .location
   .location_section
   .location_section_org
   .location_like
-  button {
+  input {
   cursor: pointer;
 
   background: rgb(118, 207, 230);
@@ -645,6 +779,7 @@
 .container-section
   .nav2
   .locations_list_container
+  #new-locations
   .location
   .location_section
   .location_section_org
@@ -662,11 +797,12 @@
 .container-section
   .nav2
   .locations_list_container
+  #new-locations
   .location
   .location_section
   .location_section_org
   .location_delete
-  button {
+  input {
   cursor: pointer;
 
   background: rgb(118, 207, 230);
@@ -678,11 +814,13 @@
   margin-bottom: 3px;
 }
 
-// Same Location inside the List of Locations Made By a User for the Page Toggle Section
+// Same Location inside the List of Locations Made By a User for the Pagination Section
 .container-section
   .nav2
   .locations_list_container
-  .location_page_toggle_section {
+  #new-locations
+  .location
+  .location_pagination_section {
   max-width: 100%;
   max-height: 3vh;
   width: 100%;
@@ -692,10 +830,73 @@
 .container-section
   .nav2
   .locations_list_container
-  .location_page_toggle_section
-  .location_page_toggle {
+  #new-locations
+  .location
+  .location_pagination_section
+  .location_pagination {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
+  text-align: center;
+  margin: 5px 5px 5px; /*top, bottom, side*/
+  user-select: none;
+}
+
+.container-section
+  .nav2
+  .locations_list_container
+  #new-locations
+  .location
+  .location_pagination_section
+  .location_pagination
+  li {
+  display: inline;
+  margin: 5px;
+  box-shadow: 0 5px 25px rgb(1 1 1/10%);
+}
+
+.container-section
+  .nav2
+  .locations_list_container
+  .location
+  .location_pagination_section
+  .location_pagination
+  li {
+  color: #fff;
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 24px;
+}
+
+.previous_page,
+.next_page {
+  background: #0ab1ce;
+  width: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.previous_page:hover {
+  transform: translateX(-5px);
+  border: 1px solid #0d75ec;
+}
+
+.next_page:hover {
+  transform: translateX(5px);
+  border: 1px solid #0d75ec;
+}
+
+.current_page {
+  background: #ccc;
+  width: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.active {
+  background: #0ab1ce;
 }
