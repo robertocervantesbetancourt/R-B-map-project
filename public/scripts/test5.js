@@ -1,21 +1,51 @@
 function initMap() {
 
+
+
   var toronto = new google.maps.LatLng(43.65240482413863, -79.37105971667096);
 
   map = new google.maps.Map(
     document.getElementById('map'), {center: toronto, zoom: 11});
 
-  //LISTEN FOR CLICK ON LOCATION
-  google.maps.event.addListener(map, "click", (event) => {
-    //add Marker
-    addMarker({ location: event.latLng });
-    let cord = { lat: event.latLng.lat(), lng: event.latLng.lng() };
-    let lat = cord.lat;
-    let long = cord.lng;
-    $(document.querySelector("#latitude")).val(lat);
-    $(document.querySelector("#longitude")).val(long);
-  });
+    let locations;
+    let location = {}
 
+
+    $.get('/google/map', function(data){
+      locations = data;
+      //console.log(locations)
+      for (const l of locations){
+        location.lat = l.location_latitude;
+        location.lng = l.location_longitude;
+        const marker = new google.maps.Marker({
+          position: location,
+          map: map,
+        })
+        const detailWindow = new google.maps.InfoWindow({
+          content: l.location_name,
+        });
+        marker
+        marker.addListener("mouseover", () => {
+          detailWindow.open(map, marker);
+        });
+      }
+    })
+
+
+    //LISTEN FOR CLICK ON LOCATION
+    google.maps.event.addListener(map, "click", (event) => {
+      //add Marker
+      addMarker({ location: event.latLng });
+      let cord = { lat: event.latLng.lat(), lng: event.latLng.lng() };
+      let lat = cord.lat;
+      let long = cord.lng;
+      $(document.querySelector("#latitude")).val(lat);
+      $(document.querySelector("#longitude")).val(long);
+    });
+
+    $(document.querySelector('body')).on('click', function(){
+      console.log('click')
+    })
 
   // let MarkerArray = [
   //   {
@@ -38,6 +68,7 @@ function initMap() {
 
   //ADD MARKER
 
+
   function addMarker(property) {
     const marker = new google.maps.Marker({
       position: property.location,
@@ -49,7 +80,7 @@ function initMap() {
       marker.setIcon(property.imageIcon);
     }
 
-    if (property.content) {
+    if (property.location_name) {
       const detailWindow = new google.maps.InfoWindow({
         content: property.content,
       });
@@ -61,15 +92,12 @@ function initMap() {
   }
   }
 
-  function addMarker(property) {
-    const marker = new google.maps.Marker({
-      position: property.location,
-      map: map,
-    });
-  }
+
+
 
 
 $(document).ready(function() {
+
 
   //clicking on map buttons
   $(".map-button input").on('click', function(e){
@@ -83,6 +111,7 @@ $(document).ready(function() {
     .then(function(data){
       console.log('ajax call...')
       $('#new-locations').html(data)
+      initMap()
     })
     .then(function(e){
       $('.locations input').on('click', function(e){

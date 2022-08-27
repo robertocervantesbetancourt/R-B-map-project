@@ -64,7 +64,7 @@ router.get("/user/:id", (req, res) => {
                   templateVars.location = location;
                   //console.log(templateVars);
                   res
-                  .clearCookie('mapID')
+                  //.clearCookie('mapID')
                   .render('index', templateVars)
                 })
                 .catch(err => {
@@ -135,7 +135,7 @@ router.get("/user/:id", (req, res) => {
                   templateVars.location = location;
                   //console.log(templateVars);
                   res
-                  .clearCookie('mapID')
+                  //.clearCookie('mapID')
                   .render('index', templateVars)
                 })
                 .catch(err => {
@@ -189,6 +189,15 @@ router.get("/user/:id", (req, res) => {
   //   })
   // })
 
+  router.get("/google/map", (req, res) => {
+    console.log('calling google maps...')
+    console.log(`the cookie is: ${req.cookies.mapID}`)
+    allLocationsInMap(db, req.cookies.mapID)
+    .then(data => {
+      const locations = data.rows;
+      res.json(locations)
+    })
+  })
   router.get("/map", (req, res) => {
     userMaps(db, req.cookies.userID)
     .then(data => {
@@ -214,6 +223,7 @@ router.get("/user/:id", (req, res) => {
           .json({ error: err.message });
       });
   });
+
 
   router.get("/location/:id", (req, res) => {
     locationInfo(db, req.params.id)
