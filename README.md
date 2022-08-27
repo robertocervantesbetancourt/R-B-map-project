@@ -8,6 +8,10 @@ Welcome to Wiki Map, an application where registered users can create maps to st
 
 !["Wiki Map"](https://github.com/robertocervantesbetancourt/R-B-map-project/blob/merge2/public/images/wikimap.png)
 
+## Group Members
+
+This project was done by [Roberto Cervantes](https://github.com/robertocervantesbetancourt), [Robert Servado](https://github.com/ArjayS) and [Minh Dung Nguyen (Bryan)](https://github.com/dungminhnguyen257)
+
 ## Technologies Information/Stack
 
 - JavaScript
